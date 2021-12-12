@@ -13,12 +13,13 @@ body{
 
     /*Déclaration des variables de dimensions*/
     --width-desktop : calc(.6*1440px);
-    /*--height-desktop : 450px;*/
+    --width-mobile : calc(var(--width-desktop)/3.5);
 }
 
 .preview{
     width : var(--width-desktop);
     display : flex;
+    margin : 15px; /*TEST*/
 }
 
 .preview__card{
@@ -58,21 +59,50 @@ body{
 }
 
 /*Modif de la forme pour la cat. SUVS*/
-.suvs{
+.preview__card.suvs{
     background-color: hsl(184, 100%, 22%);
     border-radius : 0;
 }
 
-.button-suvs{
+.card__learn-more.button-suvs{
     color: hsl(184, 100%, 22%);
 }
 
 /*Modif de la forme pour la cat. luxury*/
-.luxury{
+.preview__card.luxury{
     background-color: hsl(179, 100%, 13%);
     border-radius : 0 10px 10px 0;
 }
 
-.button-luxury{
+.card__learn-more.button-luxury{
     color: hsl(184, 100%, 22%);
+}
+
+@media screen and (max-width : 850px){
+
+    body{
+        font-size : 12px;
+        height : auto;
+    }
+    .preview{
+        width : var(--width-mobile);
+        flex-direction: column;
+    }
+
+    .preview__card.sedans{
+        border-radius : 10px 10px 0 0;
+    }
+
+    .preview__card.luxury{
+        border-radius : 0 0 10px 10px;
+    }
+
+    .preview__card{
+        padding : 30px;
+        padding-right : 40px;
+    }
+    
+    .card__vehicule-description{
+        padding-bottom : 25px;
+    }
 }
